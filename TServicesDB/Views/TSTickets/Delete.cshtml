@@ -1,0 +1,58 @@
+﻿@model TServicesDB.Models.TSTicket
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены, что хотите удалить?</h3>
+<div>
+    <h4>ТК-Билеты</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.number_route)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.number_route)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mail_client)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mail_client)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stopover)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stopover)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date_sale)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date_sale)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date_route)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date_route)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TSTicketID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться назад</a>
+    </form>
+</div>

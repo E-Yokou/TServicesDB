@@ -1,0 +1,62 @@
+﻿@model TServicesDB.Models.TSStopover
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Создать</h1>
+
+<h4>ТК-Остановки</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TSRouteId" class="control-label"></label>
+                <select asp-for="TSRouteId" class ="form-control" asp-items="ViewBag.TSRouteId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="start_city" class="control-label"></label>
+                <input asp-for="start_city" class="form-control" />
+                <span asp-validation-for="start_city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="end_city" class="control-label"></label>
+                <input asp-for="end_city" class="form-control" />
+                <span asp-validation-for="end_city" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name_stopover" class="control-label"></label>
+                <input asp-for="name_stopover" class="form-control" />
+                <span asp-validation-for="name_stopover" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TSBusId" class="control-label"></label>
+                <select asp-for="TSBusId" class="form-control" asp-items="ViewBag.TSBusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="time" class="control-label"></label>
+                <input asp-for="time" class="form-control" />
+                <span asp-validation-for="time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

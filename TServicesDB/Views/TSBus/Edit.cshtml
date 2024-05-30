@@ -1,0 +1,50 @@
+﻿@model TServicesDB.Models.TSBus
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Изменить</h1>
+
+<h4>ТК-Автобус</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TSBusID" />
+            <div class="form-group">
+                <label asp-for="type_bus" class="control-label"></label>
+                <input asp-for="type_bus" class="form-control" />
+                <span asp-validation-for="type_bus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="brand" class="control-label"></label>
+                <input asp-for="brand" class="form-control" />
+                <span asp-validation-for="brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="goverment_number" class="control-label"></label>
+                <input asp-for="goverment_number" class="form-control" />
+                <span asp-validation-for="goverment_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="place" class="control-label"></label>
+                <input asp-for="place" class="form-control" />
+                <span asp-validation-for="place" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Вернуться назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@model TServicesDB.Models.TSRoute
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Детально</h1>
+
+<div>
+    <h4>ТК-Маршруты</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numberRoute)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numberRoute)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.firstCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.firstCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lastCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lastCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.time)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.TSRouteID">Изменить</a> |
+    <a asp-action="Index">Вернуться назад</a>
+</div>

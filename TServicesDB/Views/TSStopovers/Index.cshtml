@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TServicesDB.Models.TSStopover>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ТК-Остановки</h1>
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create">Создать новую запись</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TSRoute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name_stopover)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TSBus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TSRoute.numberRoute)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.start_city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.end_city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name_stopover)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TSBus.place)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+                @if (User.IsInRole("client"))
+                {
+                    <td>
+                        <form asp-action="BuyTicket" method="post">
+                        <input name="id" type="hidden" value="@item.TSStopoverID" />
+                        <button type="submit" class="btn btn-primary">Купить</button>
+                    </form>
+                </td>
+                }
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.TSStopoverID">Изменить</a> |
+                        <a asp-action="Details" asp-route-id="@item.TSStopoverID">Детально</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TSStopoverID">Удалить</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

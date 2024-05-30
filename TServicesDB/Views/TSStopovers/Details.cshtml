@@ -1,0 +1,61 @@
+﻿@model TServicesDB.Models.TSStopover
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Детально</h1>
+
+<div>
+    <h4>ТК-Остановки</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.start_city)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.start_city)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.end_city)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.end_city)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name_stopover)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name_stopover)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TSRoute)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TSRoute.numberRoute)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TSBus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TSBus.place)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.time)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.TSStopoverID">Изменить</a> |
+    <a asp-action="Index">Вернуться назад</a>
+</div>

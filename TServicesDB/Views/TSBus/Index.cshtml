@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TServicesDB.Models.TSBus>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.type_bus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.goverment_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TSRoute)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.type_bus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.goverment_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TSRoute.numberRoute)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TSBusID">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.TSBusID">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.TSBusID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

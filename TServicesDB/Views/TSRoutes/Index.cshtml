@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TServicesDB.Models.TSRoute>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ТК-Маршруты</h1>
+
+<p>
+    <a asp-action="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.numberRoute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.firstCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberRoute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.time)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TSRouteID">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.TSRouteID">Детально</a> |
+                <a asp-action="Delete" asp-route-id="@item.TSRouteID">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model TServicesDB.Models.TSBus
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ТК-Автобус</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.type_bus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.type_bus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.brand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.goverment_number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.goverment_number)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.place)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.place)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TSRoute)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TSRoute.numberRoute)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.TSBusID">Изменить</a> |
+    <a asp-action="Index">Вернуться назад</a>
+</div>

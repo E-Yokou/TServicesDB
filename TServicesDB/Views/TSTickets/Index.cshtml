@@ -1,0 +1,72 @@
+﻿@model IEnumerable<TServicesDB.Models.TSTicket>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ТК-Билеты</h1>
+@if (User.IsInRole("admin"))
+{
+    <p>
+        <a asp-action="Create">Создать новую запись</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.number_route)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.mail_client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stopover)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_sale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_route)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.number_route)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mail_client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stopover)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_sale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_route)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                @if (!User.IsInRole("client"))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.TSTicketID">Изменить</a> |
+                        <a asp-action="Details" asp-route-id="@item.TSTicketID">Детально</a> |
+                        <a asp-action="Delete" asp-route-id="@item.TSTicketID">Удалить</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

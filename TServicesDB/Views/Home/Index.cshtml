@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Главная Страница";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добро Пожаловать!</h1>
+</div>
+
+@if (User.IsInRole("admin"))
+{
+    <div style="text-align: center;">
+        <form method="post" asp-controller="Home" asp-action="ExportToExcelTSStopover" style="display:inline-block;">
+            <input type="submit" value="ТК-Остановки - Экспорт в Excel" />
+        </form>
+        <form method="post" asp-controller="Home" asp-action="ExportToExcelTSTicket" style="display:inline-block;">
+            <input type="submit" value="ТК-Билеты - Экспорт в Excel" />
+        </form>
+    </div>
+}
